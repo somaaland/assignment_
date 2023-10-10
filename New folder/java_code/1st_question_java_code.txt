@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class LinkedListShuffleExample {
+
+    public static void main(String[] args) {
+        LinkedList<Integer> originalList = new LinkedList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
+        shuffleLinkedList(originalList);
+        System.out.println("Shuffled linked list: " + originalList);
+    }
+    public static void shuffleLinkedList(LinkedList<Integer> list) {
+        Random random = new Random();
+        for (int i = list.size() - 1; i > 0; i--) {
+            int index = random.nextInt(i + 1);
+            int temp = list.get(i);
+            list.set(i, list.get(index));
+            list.set(index, temp);
+        }
+    }
+}
